@@ -1,9 +1,15 @@
+const Task = require("../models/Task");
 exports.getAllTasks = (req, res) => {
   res.send("all items here");
 };
 
-exports.createTask = (req, res) => {
-  res.json(req.body);
+exports.createTask = async (req, res) => {
+  try {
+    const task = await Task.create(req.body);
+    res.status(201).json({ task });
+  } catch (error) {
+    res.send("Validation Error");
+  }
 };
 
 exports.getTask = (req, res) => {
