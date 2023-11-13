@@ -3,7 +3,7 @@ exports.connectDB = (url) => {
   return mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useUnifiedTopology: true,
   });
 };
